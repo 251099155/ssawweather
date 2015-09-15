@@ -1,5 +1,10 @@
 package com.ssawweather.app.activity;
 
+import net.youmi.android.AdManager;
+import net.youmi.android.listener.Interface_ActivityListener;
+import net.youmi.android.offers.OffersManager;
+import net.youmi.android.offers.OffersWallDialogListener;
+
 import com.ssawweather.app.R;
 import com.ssawweather.app.service.AutoUpdateService;
 import com.ssawweather.app.util.HttpCallbackListener;
@@ -56,18 +61,23 @@ public class WeatherActivity extends Activity implements OnClickListener {
 	
 	private Button refreshWeather;
 	
+	private Interface_ActivityListener listener;
 	
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
-		
+	
 		setContentView(R.layout.weather_layout);
 		
 		//初始化各控件
+		
+		/*OffersManager.getInstance(this).showOffersWall(listener);*/
+		
+		/*OffersManager.getInstance(this).showOffersWallDialog(this, 1, 1, listener);*/
 		
 		weatherInfoLayout=(LinearLayout) findViewById(R.id.weather_info_layout);
 		cityNameText=(TextView) findViewById(R.id.city_name);
@@ -97,8 +107,18 @@ public class WeatherActivity extends Activity implements OnClickListener {
 		switchCity.setOnClickListener(this);
 		
 		refreshWeather.setOnClickListener(this);
-		
+
 	}
+	
+	//自定义关闭广告墙对话监听
+	public interface OffersWallDialogListener {
+
+	    /**
+	     * 对话框关闭时回调
+	     */
+	    public void onDialogClose();
+	}
+	
 	
 	
 	@Override

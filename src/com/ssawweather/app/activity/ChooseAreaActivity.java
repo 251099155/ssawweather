@@ -3,6 +3,8 @@ package com.ssawweather.app.activity;
 import java.util.ArrayList;
 import java.util.List;
 
+import net.youmi.android.AdManager;
+import net.youmi.android.offers.OffersManager;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -81,6 +83,13 @@ public class ChooseAreaActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
+		
+		//初始化广告应用信息
+		AdManager.getInstance(this).init("b9cbc3554c174520", "e58c00384fdac1c0",false);
+		
+		//初始化积分墙
+		OffersManager.getInstance(this).onAppLaunch();
+		
 		isFromWeatherActivity=getIntent().getBooleanExtra
 				("from_weather_activity", false);
 		SharedPreferences prefs=PreferenceManager
@@ -310,9 +319,19 @@ public class ChooseAreaActivity extends Activity {
 				Intent intent=new Intent(this, WeatherActivity.class);
 				startActivity(intent);
 			}
+			OffersManager.getInstance(this).onAppExit();
 			finish();
 		}
 		
+	}
+
+	@Override
+	protected void onDestroy() {
+		// TODO Auto-generated method stub
+		
+		OffersManager.getInstance(this).onAppExit();
+		
+		super.onDestroy();
 	}
 	
 	

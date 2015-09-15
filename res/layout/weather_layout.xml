@@ -109,12 +109,11 @@
                     android:layout_gravity="center_vertical"
                     android:textColor="#FFF"
                     android:textSize="40sp" />
-                
-                
+  
             </LinearLayout>
             
         </LinearLayout>
-        
+   
     </RelativeLayout>
 
 </LinearLayout>
