@@ -23,9 +23,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.ssawweather.app.activity.WeatherActivity"></activity>
-        <service android:name="com.ssawweather.app.service.AutoUpdateService"></service>
-        <receiver android:name="com.ssawweather.app.receiver.AutoUpdateReceiver"></receiver>
+        <activity android:name=".activity.WeatherActivity"></activity>
+        <receiver android:name=".receiver.AutoUpdateReceiver"></receiver>
+        <service android:name=".service.AutoUpdateService"></service>
     </application>
 
 </manifest>
