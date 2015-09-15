@@ -113,7 +113,8 @@ public class WeatherActivity extends Activity {
 							String weatherCode=array[1];
 							queryWeatherInfo(weatherCode);
 						}
-					}else if ("weatherCode".equals(type)) {
+					}
+				}else if ("weatherCode".equals(type)) {
 						//处理服务器返回的天气信息
 						
 						Utility.handleWeatherResponse(WeatherActivity.this, 
@@ -128,7 +129,7 @@ public class WeatherActivity extends Activity {
 						});
 						
 					}
-				}
+				
 			}
 			
 			@Override

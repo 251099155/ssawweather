@@ -139,8 +139,7 @@ public class Utility {
 			String weatherCode, String temp1, String temp2, String weatherDesp,
 			String publishTime) {
 		// TODO Auto-generated method stub
-		SimpleDateFormat sdf=new SimpleDateFormat("yyyy年M月d日",
-				Locale.CHINA);
+		SimpleDateFormat sdf=new SimpleDateFormat("yyyy年M月d日",Locale.CHINA);
 		SharedPreferences.Editor editor=PreferenceManager
 				.getDefaultSharedPreferences(context).edit();
 		editor.putBoolean("city_selected", true);
